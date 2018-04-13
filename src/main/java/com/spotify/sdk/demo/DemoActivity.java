@@ -40,17 +40,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
-import com.android.volley.Cache;
-import com.android.volley.Network;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.BasicNetwork;
-import com.android.volley.toolbox.DiskBasedCache;
-import com.android.volley.toolbox.HurlStack;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.spotify.sdk.android.authentication.AuthenticationClient;
 import com.spotify.sdk.android.authentication.AuthenticationRequest;
@@ -70,9 +64,11 @@ import com.spotify.sdk.embedded.demo.R;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -183,6 +179,12 @@ public class DemoActivity extends Activity implements
      */
     private ScrollView mStatusTextScrollView;
     private Metadata mMetadata;
+
+    // VARIABLES
+    /*
+    private ArrayList<String> playlistId;
+    private ArrayList<String> trackId;
+    private ArrayList<String> trackName;*/
 
     private final Player.OperationCallback mOperationCallback = new Player.OperationCallback() {
         @Override
@@ -409,6 +411,11 @@ public class DemoActivity extends Activity implements
     }
 
     public void onPlayButtonClicked(View view) {
+/*
+        playlistId = new ArrayList<>();
+        trackId = new ArrayList<>();
+        trackName = new ArrayList<>();*/
+
 
         String uri;
         switch (view.getId()) {
@@ -431,24 +438,26 @@ public class DemoActivity extends Activity implements
                 throw new IllegalArgumentException("View ID does not have an associated URI to play");
         }
 
-        logStatus("Starting playback for " + uri);
-        mPlayer.playUri(mOperationCallback, uri, 0, 0);
-
-        logStatus("test nachricht");
-
 
         RequestQueue mRequestQueue = Volley.newRequestQueue(this);
-        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
-                "https://api.spotify.com/v1/audio-analysis/06AKEBrKUckW0KREUWRnvT", null,
+
+
+        JsonObjectRequest jsonPlaylistReq = new JsonObjectRequest(Request.Method.GET,
+                "https://api.spotify.com/v1/users/cxsniperown/playlists", null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         Log.d(TAG, response.toString());
+                        JSONArray items = null;
                         try {
-                            double bpm = 0;
-                            JSONObject track = response.getJSONObject("track");
-                            bpm = track.getDouble("tempo");
-                            logStatus("BPM: "+bpm);
+                            logStatus("READING PLAYLIST");
+                            items = response.getJSONArray("items");
+                            logStatus("Found Playlists: ");
+                            for (int i = 0; i < items.length(); i++) {
+                                String playlistname = items.getJSONObject(i).getString("name");
+
+                                logStatus("name: " + playlistname + "id: " + items.getJSONObject(i).getString("id"));
+                            }
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -457,22 +466,97 @@ public class DemoActivity extends Activity implements
 
             @Override
             public void onErrorResponse(VolleyError error) {
-                logStatus("EEEEEEEEERRRRRRRRRRRRRRRRRROOOOOOORRRRRRRRRR*****************");
+                logStatus("* * * * E R R O R - Get Playlists * * * *");
             }
-        }){
+        }) {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String,String> params = new HashMap<String, String>();
+                Map<String, String> params = new HashMap<String, String>();
                 params.put("Accept", "application/json");
                 params.put("Content-Type", "application/json");
-                params.put("Authorization", "Bearer BQBLKcGkXb-geTlls0YK-3WPIaBjEg6yzgSnkn0mlKVLlqxRTlMhzrg_Zw1erI1yk4HgzRzRcxrKZFnCJ_YTcsXhH9l5Kji63upofyCFaXXQWsy4cTimC7snHgAG1nEVHBVuJnfvcmqeGjmZ4Pk");
+                params.put("Authorization", "Bearer BQAXj7Y0-ogo0OzUfTuSBh0Q_Vzh8yOXzu8cD4BXrVEuP3GqoYfctAgywj_Z0LxG7O0wW4q6c1t75PPHNPJrjHXwTSk90Sarbjs6X3dDMV0L34DrSWuHzNN8VFCXuWWetK5uA229YN027rBU2BA");
+
+                return params;
+            }
+        };
+        mRequestQueue.add(jsonPlaylistReq);
+
+        JsonObjectRequest jsonTracksReq = new JsonObjectRequest(Request.Method.GET,
+                "https://api.spotify.com/v1/users/cxsniperown/playlists/5jS80G2UyZ0fztAiUplK5B/tracks", null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.d(TAG, response.toString());
+                        JSONArray items = null;
+                        try {
+                            logStatus("READING PLAYLIST");
+                            items = response.getJSONArray("items");
+                            logStatus("Found Tracks in Playlist: ");
+                            for (int i = 0; i < items.length(); i++) {
+
+                                String trackname = items.getJSONObject(i).getJSONObject("track").getString("name");
+                                logStatus("\n\ntrack name: " + trackname + "\ntrack id: " + items.getJSONObject(i).getJSONObject("track").getString("id"));
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                logStatus("* * * * E R R O R - Get Tracks In Playlist * * * *");
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("Accept", "application/json");
+                params.put("Content-Type", "application/json");
+                params.put("Authorization", "Bearer BQAXj7Y0-ogo0OzUfTuSBh0Q_Vzh8yOXzu8cD4BXrVEuP3GqoYfctAgywj_Z0LxG7O0wW4q6c1t75PPHNPJrjHXwTSk90Sarbjs6X3dDMV0L34DrSWuHzNN8VFCXuWWetK5uA229YN027rBU2BA");
+
+                return params;
+            }
+        };
+        mRequestQueue.add(jsonTracksReq);
+
+
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
+                "https://api.spotify.com/v1/audio-analysis/11dFghVXANMlKmJXsNCbNl", null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.d(TAG, response.toString());
+                        try {
+                            double bpm = 0;
+                            JSONObject track = response.getJSONObject("track");
+                            bpm = track.getDouble("tempo");
+                            logStatus("BPM: " + bpm);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                logStatus("* * * * E R R O R - Get BPM * * * *");
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("Accept", "application/json");
+                params.put("Content-Type", "application/json");
+                params.put("Authorization", "Bearer BQAXj7Y0-ogo0OzUfTuSBh0Q_Vzh8yOXzu8cD4BXrVEuP3GqoYfctAgywj_Z0LxG7O0wW4q6c1t75PPHNPJrjHXwTSk90Sarbjs6X3dDMV0L34DrSWuHzNN8VFCXuWWetK5uA229YN027rBU2BA");
 
                 return params;
             }
         };
         mRequestQueue.add(jsonObjReq);
 
-        logStatus("Metadata"+mPlayer.getMetadata());
+        logStatus("Starting playback for " + uri);
+        mPlayer.playUri(mOperationCallback, uri, 0, 0);
     }
 
     public void onPauseButtonClicked(View view) {
@@ -542,7 +626,7 @@ public class DemoActivity extends Activity implements
     }
 
     public void onLoginFailed(Error error) {
-        logStatus("Login error "+ error);
+        logStatus("Login error " + error);
     }
 
     @Override

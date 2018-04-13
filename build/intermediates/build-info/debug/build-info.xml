@@ -5,24 +5,24 @@
     build-mode="COLD"
     density="xhdpi"
     format="10"
-    ir-eligibility="COMPATIBLE"
+    ir-eligibility="IMPLEMENTED_INTERFACES_CHANGE"
     plugin-version="3.0.1"
-    timestamp="1523019897293"
+    timestamp="1523621540941"
     token="-1630237974327442093"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="424" />
+        duration="960" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="70" />
+        duration="210" />
     <task
         name="verifier"
-        duration="29" />
+        duration="172" />
 
     <artifact
         location="C:\Users\Gregor\Downloads\android-sdk-24-noconnect-2.20b\android-sdk-24-noconnect-2.20b\samples\DemoProject\build\intermediates\split-apk\debug\slices\slice_8.apk"
@@ -33,7 +33,7 @@
 
     <build
         build-mode="FULL"
-        timestamp="1523017960526"
+        timestamp="1523619531241"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="C:\Users\Gregor\Downloads\android-sdk-24-noconnect-2.20b\android-sdk-24-noconnect-2.20b\samples\DemoProject\build\intermediates\split-apk\debug\slices\slice_8.apk"
@@ -74,8 +74,8 @@
     </build>
     <build
         build-mode="COLD"
-        ir-eligibility="METHOD_DELETED"
-        timestamp="1523019830665"
+        ir-eligibility="FIELD_ADDED"
+        timestamp="1523621463633"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="C:\Users\Gregor\Downloads\android-sdk-24-noconnect-2.20b\android-sdk-24-noconnect-2.20b\samples\DemoProject\build\outputs\apk\debug\DemoProject-debug.apk"
@@ -83,8 +83,8 @@
     </build>
     <build
         build-mode="COLD"
-        ir-eligibility="COMPATIBLE"
-        timestamp="1523019897293"
+        ir-eligibility="IMPLEMENTED_INTERFACES_CHANGE"
+        timestamp="1523621540941"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="C:\Users\Gregor\Downloads\android-sdk-24-noconnect-2.20b\android-sdk-24-noconnect-2.20b\samples\DemoProject\build\intermediates\split-apk\debug\slices\slice_8.apk"
