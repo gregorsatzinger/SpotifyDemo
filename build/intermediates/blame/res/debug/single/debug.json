@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "C:\\Users\\Gregor\\Downloads\\android-sdk-24-noconnect-2.20b\\android-sdk-24-noconnect-2.20b\\samples\\DemoProject\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Gregor\\Downloads\\android-sdk-24-noconnect-2.20b\\android-sdk-24-noconnect-2.20b\\samples\\DemoProject\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Gregor\\Downloads\\android-sdk-24-noconnect-2.20b\\android-sdk-24-noconnect-2.20b\\samples\\DemoProject\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Gregor\\Downloads\\android-sdk-24-noconnect-2.20b\\android-sdk-24-noconnect-2.20b\\samples\\DemoProject\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Gregor\\Downloads\\android-sdk-24-noconnect-2.20b\\android-sdk-24-noconnect-2.20b\\samples\\DemoProject\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Gregor\\Downloads\\android-sdk-24-noconnect-2.20b\\android-sdk-24-noconnect-2.20b\\samples\\DemoProject\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Gregor\\Downloads\\android-sdk-24-noconnect-2.20b\\android-sdk-24-noconnect-2.20b\\samples\\DemoProject\\build\\intermediates\\res\\merged\\debug\\layout_com_spotify_sdk_login_dialog.xml.flat",
+        "source": "C:\\Users\\Gregor\\.gradle\\caches\\transforms-1\\files-1.1\\spotify-android-auth-1.0.0.aar\\aa19567cd25d019a3a88f84053a6f770\\res\\layout\\com_spotify_sdk_login_dialog.xml"
+    },
+    {
+        "merged": "C:\\Users\\Gregor\\Downloads\\android-sdk-24-noconnect-2.20b\\android-sdk-24-noconnect-2.20b\\samples\\DemoProject\\build\\intermediates\\res\\merged\\debug\\layout_activity_demo.xml.flat",
+        "source": "C:\\Users\\Gregor\\Downloads\\android-sdk-24-noconnect-2.20b\\android-sdk-24-noconnect-2.20b\\samples\\DemoProject\\src\\main\\res\\layout\\activity_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\Gregor\\Downloads\\android-sdk-24-noconnect-2.20b\\android-sdk-24-noconnect-2.20b\\samples\\DemoProject\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Gregor\\Downloads\\android-sdk-24-noconnect-2.20b\\android-sdk-24-noconnect-2.20b\\samples\\DemoProject\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Gregor\\Downloads\\android-sdk-24-noconnect-2.20b\\android-sdk-24-noconnect-2.20b\\samples\\DemoProject\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Gregor\\Downloads\\android-sdk-24-noconnect-2.20b\\android-sdk-24-noconnect-2.20b\\samples\\DemoProject\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Gregor\\Downloads\\android-sdk-24-noconnect-2.20b\\android-sdk-24-noconnect-2.20b\\samples\\DemoProject\\build\\intermediates\\res\\merged\\debug\\layout_com_spotify_sdk_login_activity.xml.flat",
+        "source": "C:\\Users\\Gregor\\.gradle\\caches\\transforms-1\\files-1.1\\spotify-android-auth-1.0.0.aar\\aa19567cd25d019a3a88f84053a6f770\\res\\layout\\com_spotify_sdk_login_activity.xml"
+    },
+    {
+        "merged": "C:\\Users\\Gregor\\Downloads\\android-sdk-24-noconnect-2.20b\\android-sdk-24-noconnect-2.20b\\samples\\DemoProject\\build\\intermediates\\res\\merged\\debug\\layout_buttons.xml.flat",
+        "source": "C:\\Users\\Gregor\\Downloads\\android-sdk-24-noconnect-2.20b\\android-sdk-24-noconnect-2.20b\\samples\\DemoProject\\src\\main\\res\\layout\\buttons.xml"
+    }
+]

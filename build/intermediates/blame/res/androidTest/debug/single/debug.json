@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "C:\\Users\\Gregor\\Downloads\\android-sdk-24-noconnect-2.20b\\android-sdk-24-noconnect-2.20b\\samples\\DemoProject\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_com_spotify_sdk_login_dialog.xml.flat",
+        "source": "C:\\Users\\Gregor\\.gradle\\caches\\transforms-1\\files-1.1\\spotify-android-auth-1.0.0.aar\\aa19567cd25d019a3a88f84053a6f770\\res\\layout\\com_spotify_sdk_login_dialog.xml"
+    },
+    {
+        "merged": "C:\\Users\\Gregor\\Downloads\\android-sdk-24-noconnect-2.20b\\android-sdk-24-noconnect-2.20b\\samples\\DemoProject\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_com_spotify_sdk_login_activity.xml.flat",
+        "source": "C:\\Users\\Gregor\\.gradle\\caches\\transforms-1\\files-1.1\\spotify-android-auth-1.0.0.aar\\aa19567cd25d019a3a88f84053a6f770\\res\\layout\\com_spotify_sdk_login_activity.xml"
+    }
+]
